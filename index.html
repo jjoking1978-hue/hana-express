@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HANA Express | 韓国向けハンドキャリー・アパレル検品所</title>
+  <meta name="description" content="HANA Expressは、日本から韓国へのハンドキャリー輸送、アパレル検品、タグ付け、ラベル制作、納品代行、韓国仕入れ・韓国工場に関するご相談に対応する日韓物流サービスです。">
+  <meta name="robots" content="index, follow">
+  <meta name="format-detection" content="telephone=yes">
+  <link rel="canonical" href="https://hana-express.net/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HANA Express">
+  <meta property="og:title" content="HANA Express | 韓国向けハンドキャリー・アパレル検品所">
+  <meta property="og:description" content="日本から韓国へのハンドキャリー輸送、アパレル検品、タグ付け、ラベル制作、納品代行まで対応します。">
+  <meta property="og:url" content="https://hana-express.net/">
+  <meta property="og:image" content="https://hana-express.net/assets/warehouse.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HANA Express | 韓国向けハンドキャリー・アパレル検品所">
+  <meta name="twitter:description" content="日韓ハンドキャリー、アパレル検品、タグ付け、ラベル制作、納品代行のご相談に対応します。">
+  <meta name="twitter:image" content="https://hana-express.net/assets/warehouse.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "HANA Express",
+      "url": "https://hana-express.net/",
+      "description": "日本から韓国へのハンドキャリー輸送、アパレル検品、タグ付け、ラベル制作、納品代行、韓国仕入れ・韓国工場に関するご相談に対応する日韓物流サービスです。",
+      "telephone": "+81-3-3402-7121",
+      "email": "hana0334027121@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "151-0051",
+        "addressRegion": "東京都",
+        "addressLocality": "渋谷区",
+        "streetAddress": "千駄ヶ谷2-39-3 千駄ヶ谷ホリタン104号",
+        "addressCountry": "JP"
+      },
+      "areaServed": ["日本", "韓国"],
+      "knowsAbout": [
+        "韓国向けハンドキャリー",
+        "日韓物流",
+        "アパレル検品",
+        "タグ付け",
+        "ラベル制作",
+        "納品代行",
+        "韓国仕入れ",
+        "韓国工場"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "HANA Express サービス",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "ハンドキャリーサービス",
+              "description": "日本発・韓国向けを中心とした日韓ハンドキャリー輸送。衣類・サンプル・小口貨物に対応します。"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "検品所サービス",
+              "description": "アパレル商品の保管、タグ付け、ラベル制作、検品、納品代行、国内配送手配に対応します。"
+            }
+          }
+        ]
+      },
+      "department": {
+        "@type": "LocalBusiness",
+        "name": "HANA Express 物流センター（佐倉市）",
+        "telephone": "+81-43-312-3968",
+        "email": "inose3105.hana@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "postalCode": "285-0864",
+          "addressRegion": "千葉県",
+          "addressLocality": "佐倉市",
+          "streetAddress": "稲荷台2丁目5-4",
+          "addressCountry": "JP"
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --ink: #111827;
+      --sub: #4b5563;
+      --muted: #6b7280;
+      --line: #d9e1ec;
+      --bg: #f5f7fa;
+      --navy: #081525;
+      --blue: #004c97;
+      --blue-2: #0a65b7;
+      --green: #0f7a5c;
+      --orange: #ff8a3d;
+      --white: #ffffff;
+      --radius: 8px;
+      --shadow: 0 24px 70px rgba(8, 21, 37, .16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", "Hiragino Sans", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(360px, .9fr) minmax(0, 1.1fr);
+      background: var(--white);
+    }
+
+    .hero {
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
+      padding: clamp(28px, 5vw, 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        linear-gradient(145deg, rgba(8, 21, 37, .98), rgba(15, 36, 61, .94)),
+        radial-gradient(circle at 82% 18%, rgba(10, 101, 183, .32), transparent 34%);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(180deg, #000, transparent 78%);
+      pointer-events: none;
+    }
+
+    .brand,
+    .hero-main,
+    .hero-foot {
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #9cc5ee;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 1.06;
+      font-weight: 900;
+    }
+
+    .lead {
+      max-width: 620px;
+      margin: 24px 0 0;
+      color: rgba(255, 255, 255, .80);
+      font-size: 16px;
+      line-height: 1.9;
+      font-weight: 650;
+    }
+
+    .route {
+      max-width: 520px;
+      margin-top: 36px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.06);
+    }
+
+    .route-line {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 16px;
+      font-size: clamp(24px, 3.4vw, 38px);
+      font-weight: 900;
+    }
+
+    .route-arrow {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blue-2);
+    }
+
+    .hero-foot {
+      display: grid;
+      gap: 8px;
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+      line-height: 1.6;
+      font-weight: 700;
+    }
+
+    .content {
+      min-height: 100vh;
+      padding: clamp(24px, 5vw, 70px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .screen {
+      width: min(100%, 820px);
+      display: none;
+      animation: enter .22s ease both;
+    }
+
+    .screen.active { display: block; }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateX(18px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .chooser-head h2,
+    .page-head h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.22;
+    }
+
+    .chooser-head p,
+    .page-head p {
+      max-width: 680px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.85;
+      font-weight: 650;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .menu-card {
+      appearance: none;
+      min-height: 300px;
+      padding: 0 22px 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+    }
+
+    .menu-card:hover,
+    .menu-card:focus-visible {
+      border-color: rgba(0, 76, 151, .42);
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .menu-card::after {
+      content: "→";
+      position: absolute;
+      right: 18px;
+      bottom: 16px;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #eef5fc;
+      color: var(--blue);
+      font-weight: 900;
+      transition: transform .18s ease, background .18s ease, color .18s ease;
+    }
+
+    .menu-card:hover::after,
+    .menu-card:focus-visible::after {
+      transform: translateX(4px);
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .menu-photo {
+      display: block;
+      width: calc(100% + 44px);
+      height: 128px;
+      margin: 0 -22px 18px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+      filter: saturate(.96) contrast(1.03);
+    }
+
+    .menu-card small {
+      display: block;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .menu-card strong {
+      display: block;
+      font-size: 23px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .menu-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      font-weight: 650;
+      padding-right: 42px;
+    }
+
+    .menu-visual {
+      width: 66px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      background: #eef5fc;
+      border: 1px solid rgba(0, 76, 151, .16);
+      color: var(--blue);
+    }
+
+    .menu-visual svg {
+      width: 38px;
+      height: 38px;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .menu-card.inspection .menu-visual {
+      background: #f1f8f4;
+      color: var(--green);
+      border-color: rgba(15, 122, 92, .18);
+    }
+
+    .quick-contact {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid rgba(0, 76, 151, .16);
+      border-radius: var(--radius);
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .quick-contact strong {
+      display: block;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .quick-contact span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+      line-height: 1.6;
+    }
+
+    .quick-contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .intent-list {
+      margin-top: 18px;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .intent-list li {
+      min-height: 44px;
+      padding: 11px 13px;
+      border: 1px solid rgba(0, 76, 151, .13);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--sub);
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 800;
+    }
+
+    .back {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 14px;
+      margin-bottom: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .page-card {
+      margin-top: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 18px 50px rgba(8, 21, 37, .08);
+      overflow: hidden;
+    }
+
+    .service-photo {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-photo.handcarry {
+      object-position: center 58%;
+    }
+
+    .service-photo.inspection {
+      object-position: center 50%;
+    }
+
+    .page-label {
+      padding: 22px 24px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--line);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .info:last-child { border-bottom: 0; }
+
+    .info h3 {
+      margin: 0;
+      color: var(--blue);
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .info p,
+    .info ul,
+    .info ol {
+      margin: 0;
+      color: var(--sub);
+      line-height: 1.8;
+      font-size: 15px;
+      font-weight: 650;
+    }
+
+    .info ul,
+    .info ol { padding-left: 1.25em; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 22px 24px 26px;
+      background: #f8fafc;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .button.primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .button.orange {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+    }
+
+    .button.line {
+      background: #06c755;
+      border-color: #06c755;
+      color: #fff;
+    }
+
+    .office-list {
+      display: grid;
+      gap: 12px;
+      padding: 22px 24px 26px;
+      background: #fff;
+      border-top: 1px solid var(--line);
+    }
+
+    .office {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f8fafc;
+    }
+
+    .office strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .office span {
+      display: block;
+      color: var(--sub);
+      line-height: 1.75;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    @media (max-width: 980px) {
+      .app { grid-template-columns: 1fr; }
+      .hero {
+        position: relative;
+        min-height: 560px;
+      }
+      .content { min-height: auto; }
+    }
+
+    @media (max-width: 680px) {
+      .hero,
+      .content { padding: 22px; }
+      .menu,
+      .info,
+      .intent-list { grid-template-columns: 1fr; }
+      .menu-card { min-height: auto; }
+      .quick-contact {
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .quick-contact-actions { justify-content: stretch; }
+      .quick-contact-actions .button { flex: 1 1 160px; }
+      .menu-photo { height: 150px; }
+      .service-photo { height: 190px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <a class="brand" href="#">
+        <span class="brand-mark">H</span>
+        <span>HANA Express</span>
+      </a>
+
+      <div class="hero-main">
+        <p class="eyebrow">JP | KR LOGISTICS PARTNER</p>
+        <h1>韓国へ送る、<br>衣類物流の相談先。</h1>
+        <p class="lead">HANA Expressは、日本から韓国へのハンドキャリー輸送、アパレル検品、タグ付け、ラベル制作、納品代行まで対応する日韓物流サービスです。韓国仕入れや韓国工場に関するご相談も承ります。</p>
+        <div class="route" aria-label="Japan Korea round trip route">
+          <div class="route-line">
+            <span>Japan</span>
+            <span class="route-arrow">⇄</span>
+            <span>Korea</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-foot">
+        <span>東京事務所：03-3402-7121 / hana0334027121@gmail.com</span>
+        <span>物流センター：043-312-3968 / inose3105.hana@gmail.com</span>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="screen active" id="screen-home">
+        <div class="chooser-head">
+          <h2>お探しの内容を選択してください</h2>
+          <p>韓国へ急ぎで荷物を送りたい方、アパレル商品の検品所・タグ付け・納品代行を探している方は、目的に近いサービスをお選びください。</p>
+        </div>
+
+        <div class="menu" aria-label="サービス選択">
+          <button class="menu-card" type="button" data-screen="handcarry">
+            <img class="menu-photo" src="assets/pickup-van.png" alt="日本国内で荷物を集荷する配送車">
+            <span class="menu-visual" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path d="M6 28 42 12 30 42 23 29 6 28Z"></path>
+                <path d="M23 29 42 12"></path>
+              </svg>
+            </span>
+            <small>01</small>
+            <strong>ハンドキャリーサービス</strong>
+            <span>日本から韓国へ、衣類・サンプル・小口貨物を急ぎで届けたい方へ</span>
+          </button>
+
+          <button class="menu-card inspection" type="button" data-screen="inspection">
+            <img class="menu-photo" src="assets/apparel-packing.png" alt="衣類を梱包する作業">
+            <span class="menu-visual" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path d="M12 14h24v28H12z"></path>
+                <path d="M17 8h14l5 6H12l5-6Z"></path>
+                <path d="M18 24h12"></path>
+                <path d="M18 31h8"></path>
+                <path d="M34 27l3 3 6-7"></path>
+              </svg>
+            </span>
+            <small>02</small>
+            <strong>検品所サービス</strong>
+            <span>アパレル商品の保管・タグ付け・検品・納品代行を依頼したい方へ</span>
+          </button>
+        </div>
+
+        <ul class="intent-list" aria-label="よくあるご相談">
+          <li>韓国へハンドキャリーで送りたい</li>
+          <li>アパレル商品の検品所を探している</li>
+          <li>タグ付け・ラベル制作を依頼したい</li>
+          <li>韓国仕入れ・韓国工場について相談したい</li>
+        </ul>
+
+        <div class="quick-contact">
+          <div>
+            <strong>お急ぎのご相談はこちら</strong>
+            <span>ハンドキャリー・検品所サービスともに、お電話またはLINEでお問い合わせください。</span>
+          </div>
+          <div class="quick-contact-actions">
+            <a class="button primary" href="tel:+81334027121">電話で相談する</a>
+            <button class="button line line-placeholder" type="button">LINEで問い合わせ</button>
+          </div>
+        </div>
+      </div>
+
+      <article class="screen" id="screen-handcarry">
+        <button class="back" type="button" data-back>← サービス選択へ戻る</button>
+        <div class="page-head">
+          <h2>ハンドキャリーサービス</h2>
+          <p>韓国へ急ぎで送りたい衣類・サンプル・小口貨物を中心に、日本 ⇄ 韓国を行き来するハンドキャリー輸送に対応します。</p>
+        </div>
+        <div class="page-card">
+          <img class="service-photo handcarry" src="assets/container-port.png" alt="港でコンテナを取り扱う物流現場">
+          <div class="page-label">HAND CARRY SERVICE</div>
+          <div class="info">
+            <h3>サービス概要</h3>
+            <ul>
+              <li>日本発・韓国向けを中心とした日韓ハンドキャリー輸送</li>
+              <li>衣類・サンプル・小口貨物を中心に対応</li>
+              <li>日本 ⇄ 韓国を行き来する定期的な輸送体制</li>
+              <li>急ぎの案件、通常貨物では間に合わない案件にも柔軟に対応</li>
+            </ul>
+          </div>
+          <div class="info">
+            <h3>よくあるご相談</h3>
+            <ul>
+              <li>韓国の取引先・工場へ商品サンプルを急ぎで送りたい</li>
+              <li>韓国で仕入れた商品や衣類の輸送について相談したい</li>
+              <li>航空便・カーゴ便では納期が合わない荷物を届けたい</li>
+            </ul>
+          </div>
+          <div class="info">
+            <h3>カーゴ・フェリー</h3>
+            <p>ハンドキャリーだけでなく、案件内容に応じてカーゴ便やフェリーを利用した輸送にも対応します。数量・納期・コストに合わせて最適な方法をご提案します。</p>
+          </div>
+          <div class="info">
+            <h3>当日対応</h3>
+            <p>東京都渋谷区千駄ヶ谷の東京事務所にて、当日受付・当日ピックアップのご相談も可能です。内容により事前確認をお願いする場合がございます。</p>
+          </div>
+          <div class="actions">
+            <a class="button primary" href="tel:+81334027121">電話で相談する</a>
+            <button class="button line line-placeholder" type="button">LINEで問い合わせ</button>
+            <a class="button" href="mailto:hana0334027121@gmail.com">メールで相談する</a>
+          </div>
+          <div class="office-list">
+            <div class="office">
+              <strong>東京事務所</strong>
+              <span>〒151-0051<br>東京都渋谷区千駄ヶ谷2-39-3 千駄ヶ谷ホリタン104号<br>TEL：03-3402-7121<br>E-mail：hana0334027121@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="screen" id="screen-inspection">
+        <button class="back" type="button" data-back>← サービス選択へ戻る</button>
+        <div class="page-head">
+          <h2>検品所サービス</h2>
+          <p>アパレル事業者向けに、衣類の物品保管からタグ作業、ラベル制作、検品、納品配送まで一貫して対応します。</p>
+        </div>
+        <div class="page-card">
+          <img class="service-photo inspection" src="assets/warehouse.png" alt="物流センター内の保管作業エリア">
+          <div class="page-label">INSPECTION & WAREHOUSE SERVICE</div>
+          <div class="info">
+            <h3>サービス内容</h3>
+            <ul>
+              <li>衣類を中心とした物品保管</li>
+              <li>タグ付け・ネームラベル制作</li>
+              <li>外観検品・数量確認</li>
+              <li>再梱包・出荷準備</li>
+              <li>納品代行・国内配送手配</li>
+            </ul>
+          </div>
+          <div class="info">
+            <h3>よくあるご依頼</h3>
+            <ul>
+              <li>アパレル商品の検品所を探している</li>
+              <li>衣類のタグ付け・ラベル制作をまとめて依頼したい</li>
+              <li>保管から納品配送まで外部に任せたい</li>
+            </ul>
+          </div>
+          <div class="info">
+            <h3>ご利用の流れ</h3>
+            <ol>
+              <li>入庫・保管</li>
+              <li>検品・数量確認</li>
+              <li>タグ付け・ラベル制作</li>
+              <li>梱包・出荷準備</li>
+              <li>納品代行・配送手配</li>
+            </ol>
+          </div>
+          <div class="actions">
+            <a class="button orange" href="tel:+81433123968">物流センターへ電話する</a>
+            <button class="button line line-placeholder" type="button">LINEで問い合わせ</button>
+            <a class="button" href="mailto:inose3105.hana@gmail.com">メールで相談する</a>
+          </div>
+          <div class="office-list">
+            <div class="office">
+              <strong>物流センター（佐倉市）</strong>
+              <span>〒285-0864<br>千葉県佐倉市稲荷台2丁目5-4<br>TEL：043-312-3968<br>E-mail：inose3105.hana@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const screens = document.querySelectorAll(".screen");
+
+    function showScreen(name) {
+      screens.forEach((screen) => {
+        screen.classList.toggle("active", screen.id === `screen-${name}`);
+      });
+    }
+
+    document.querySelectorAll("[data-screen]").forEach((button) => {
+      button.addEventListener("click", () => showScreen(button.dataset.screen));
+    });
+
+    document.querySelectorAll("[data-back]").forEach((button) => {
+      button.addEventListener("click", () => showScreen("home"));
+    });
+
+    document.querySelectorAll(".line-placeholder").forEach((button) => {
+      button.addEventListener("click", () => {
+        alert("LINE公式アカウントのURLを設定すると、このボタンから直接お問い合わせできます。");
+      });
+    });
+  </script>
+</body>
+</html>
