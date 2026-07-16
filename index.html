@@ -623,7 +623,7 @@
 <body>
   <main class="app">
     <section class="hero">
-      <a class="brand" href="#">
+      <a class="brand" href="#home" data-home>
         <span class="brand-mark">H</span>
         <span>HANA Express</span>
       </a>
@@ -820,6 +820,13 @@
 
     document.querySelectorAll("[data-back]").forEach((button) => {
       button.addEventListener("click", () => showScreen("home"));
+    });
+
+    document.querySelectorAll("[data-home]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        showScreen("home");
+      });
     });
 
     document.querySelectorAll(".line-placeholder").forEach((button) => {
