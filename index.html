@@ -364,6 +364,56 @@
     }
     .case-meta b { color: var(--ink); }
 
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      max-width: 920px;
+      margin: 34px auto 0;
+    }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(10,58,104,.06);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      position: relative;
+      padding: 20px 58px 20px 22px;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.55;
+      font-weight: 900;
+      cursor: pointer;
+      list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: 22px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--muted);
+      color: var(--blue);
+      font-size: 20px;
+      line-height: 1;
+      transform: translateY(-50%);
+    }
+    .faq-item[open] summary { color: var(--blue-dark); }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-answer {
+      margin: 0;
+      padding: 0 22px 22px;
+      color: var(--sub);
+      line-height: 1.8;
+      font-weight: 700;
+    }
+
     .quote-layout {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
@@ -541,6 +591,7 @@
         <a href="#service" data-i18n="nav.service">サービス</a>
         <a href="#process" data-i18n="nav.process">ご利用の流れ</a>
         <a href="#cases" data-i18n="nav.cases">作業事例</a>
+        <a href="#faq" data-i18n="nav.faq">よくある質問</a>
         <a href="#quote" data-i18n="nav.quote">見積り相談</a>
         <div class="lang" aria-label="language selector">
           <button type="button" data-lang="ko">KR</button>
@@ -646,6 +697,19 @@
           <p data-i18n="cases.desc">고객 정보 보호를 위해 회사명은 공개하지 않고, 업종과 작업 내용 중심으로 안내합니다.</p>
         </div>
         <div class="grid two" id="caseGrid"></div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-i18n="faq.eyebrow">よくある質問</p>
+            <h2 data-i18n="faq.title">ご相談前によくいただく質問</h2>
+          </div>
+          <p data-i18n="faq.desc">数量や作業内容が未定でも大丈夫です。まずはわかる範囲でご相談ください。</p>
+        </div>
+        <div class="faq-list" id="faqList"></div>
       </div>
     </section>
 
@@ -764,6 +828,7 @@
           "nav.service": "서비스",
           "nav.process": "진행 과정",
           "nav.cases": "작업 사례",
+          "nav.faq": "자주 묻는 질문",
           "nav.quote": "견적 문의",
           "hero.title": "일본 현지 검품·택 작업·포장·출고를 한 번에",
           "hero.lead": "한국에서 일본으로 상품을 판매하고 계신가요? 한국어로 편하게 상담하고, 일본 현지에서 필요한 검품, 택 작업, 라벨 부착, 포장, 보관, 일본 국내 출고를 맡길 수 있습니다.",
@@ -793,6 +858,9 @@
           "cases.eyebrow": "작업 사례",
           "cases.title": "회사명을 공개하지 않는 작업 사례",
           "cases.desc": "고객 정보 보호를 위해 회사명은 공개하지 않고, 업종과 작업 내용 중심으로 안내합니다.",
+          "faq.eyebrow": "FAQ",
+          "faq.title": "상담 전에 자주 묻는 질문",
+          "faq.desc": "수량이나 작업 내용이 아직 확정되지 않아도 괜찮습니다. 아는 범위에서 먼저 문의해 주세요.",
           "quote.eyebrow": "문의",
           "quote.title": "일본 현지 검품·포장·출고에 대해 상담해 주세요",
           "quote.desc": "상품 종류, 예상 수량, 필요한 작업과 희망 일정을 알려주시면 작업 가능 여부와 진행 방법을 안내해 드립니다.",
@@ -900,6 +968,14 @@
             rows: [["상담 내용", "수량 확인, 일본어 라벨 부착, 세트 포장"], ["출고 방식", "거래처별 분류 및 납품 상담"], ["결과", "작업 범위와 일정 확인 후 진행 방법 안내"]]
           }
         ],
+        faqs: [
+          ["소량이나 일회성 작업도 의뢰할 수 있나요?", "가능 여부를 상담할 수 있습니다. 상품 종류, 수량, 필요한 작업과 희망 일정을 확인한 뒤 진행 방법을 안내해 드립니다."],
+          ["견적 문의할 때 무엇을 알려야 하나요?", "상품 종류, 예상 수량, 필요한 작업, 희망 일정을 알려주세요. 아직 확정되지 않은 항목은 아는 범위에서 말씀해 주셔도 됩니다."],
+          ["상품은 어디로 보내면 되나요?", "작업 가능 여부와 내용을 먼저 확인한 뒤 입고 장소와 발송 방법을 안내합니다. 확인 전에는 상품을 먼저 보내지 말고 상담해 주세요."],
+          ["검품 기준은 어떻게 전달하나요?", "작업 지시서, 사진, 샘플 등 준비 가능한 자료로 기준을 공유해 주세요. 자료를 확인하고 작업 방법을 상담합니다."],
+          ["택 교체나 일본어 라벨 부착도 가능한가요?", "택 부착·교체, 일본어 품질표시 라벨, 바코드와 가격 스티커 작업을 상담할 수 있습니다. 필요한 데이터와 부자재 준비 방법은 작업별로 확인합니다."],
+          ["급한 작업이나 불량 상품 처리는 어떻게 하나요?", "희망 일정과 작업 범위를 확인한 뒤 긴급 대응 가능 여부를 안내합니다. 불량 상품은 고객 지시에 따라 분리, 재작업, 반송 등의 처리 방법을 정합니다."]
+        ],
         news: []
       },
       ja: {
@@ -914,6 +990,7 @@
           "nav.service": "サービス",
           "nav.process": "ご利用の流れ",
           "nav.cases": "作業事例",
+          "nav.faq": "よくある質問",
           "nav.quote": "見積り相談",
           "hero.title": "法人向け検品・梱包・出荷代行サービス",
           "hero.lead": "検品・タグ付け・梱包作業を、必要な時だけ外部委託",
@@ -943,6 +1020,9 @@
           "cases.eyebrow": "事例",
           "cases.title": "社名非公開の作業事例",
           "cases.desc": "お客様情報を守るため、社名は公開せず、業種と作業内容を中心にご案内します。",
+          "faq.eyebrow": "よくある質問",
+          "faq.title": "ご相談前によくいただく質問",
+          "faq.desc": "数量や作業内容が未定でも大丈夫です。まずはわかる範囲でご相談ください。",
           "quote.eyebrow": "お問い合わせ",
           "quote.title": "検品・梱包・出荷作業についてご相談ください",
           "quote.desc": "商品カテゴリー、数量、ご希望の作業内容、納期をお知らせいただけましたら、対応可否と進め方をご案内いたします。",
@@ -1050,6 +1130,14 @@
             rows: [["相談内容", "数量確認、日本語ラベル貼り、セット梱包"], ["出荷方法", "取引先別の仕分けと納品相談"], ["結果", "作業範囲と納期を確認し、対応方法をご案内"]]
           }
         ],
+        faqs: [
+          ["小ロットやスポット作業も依頼できますか？", "対応可否をご相談いただけます。商品種類、数量、希望作業、納期を確認したうえで、進め方をご案内します。"],
+          ["見積り相談では何を伝えればよいですか？", "商品種類、予定数量、希望作業、希望納期をお知らせください。未確定の項目は、わかる範囲で問題ありません。"],
+          ["商品はどこへ送ればよいですか？", "作業可否と内容を確認した後、入庫先と発送方法をご案内します。確認前に商品を送らず、まずはご相談ください。"],
+          ["検品基準はどのように共有しますか？", "作業指示書、写真、サンプルなど、準備可能な資料で基準を共有してください。内容を確認し、作業方法をご相談します。"],
+          ["タグ交換や日本語ラベル貼りもできますか？", "タグの取り付け・交換、日本語品質表示ラベル、バーコード、価格シールなどをご相談いただけます。必要なデータや資材の準備方法は案件ごとに確認します。"],
+          ["急ぎの作業や不良品の処理はどうなりますか？", "希望納期と作業範囲を確認し、緊急対応の可否をご案内します。不良品はお客様の指示に合わせて、分別、再作業、返送などの方法を決めます。"]
+        ],
         news: []
       }
     };
@@ -1121,6 +1209,12 @@
             <ul class="case-meta">${item.rows.map((row) => `<li><b>${row[0]}:</b> ${row[1]}</li>`).join("")}</ul>
           </div>
         </article>
+      `);
+      renderList("faqList", data.faqs, (item) => `
+        <details class="faq-item">
+          <summary>${item[0]}</summary>
+          <p class="faq-answer">${item[1]}</p>
+        </details>
       `);
       const newsSection = document.getElementById("news");
       newsSection.hidden = data.news.length === 0;
