@@ -199,6 +199,8 @@
     .button.primary { background: var(--blue); border-color: var(--blue); color: #fff; }
     .button.green { background: var(--green); border-color: var(--green); color: #fff; }
     .button.orange { background: var(--orange); border-color: var(--orange); color: #fff; }
+    .button.line-strong { min-height: 54px; padding: 0 24px; background: #06c755; border-color: #06c755; color: #fff; box-shadow: 0 12px 28px rgba(6,199,85,.28); }
+    .hero-proof { margin: 14px 0 0; color: #eafff1; font-size: 14px; font-weight: 900; }
 
     .hero {
       background:
@@ -427,6 +429,10 @@
       background: #fff;
       box-shadow: var(--shadow);
     }
+    .line-inquiry-box { margin-top: 20px; padding: 20px; border: 2px solid #b9e6d0; border-radius: 12px; background: #f1fff7; }
+    .line-inquiry-box strong { display: block; color: #087a42; font-size: 18px; }
+    .line-inquiry-box p { margin: 9px 0 0; color: #315d49; line-height: 1.7; }
+    .line-template { margin-top: 14px; padding: 14px; border-radius: 8px; background: #fff; color: var(--ink); font-size: 14px; line-height: 1.75; white-space: pre-line; }
     .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
     .send-notice {
       margin: 18px 0 0;
@@ -612,8 +618,9 @@
           <div class="cta-row">
             <a class="button primary" href="#quote" data-i18n="cta.quote">무료 견적 상담</a>
             <a class="button" href="#service" data-i18n="cta.service">서비스 자세히 보기</a>
-            <a class="button green" href="https://lin.ee/z5ZCQga" target="_blank" rel="noopener" data-i18n="cta.line">LINE으로 문의</a>
+            <a class="button line-strong" href="https://lin.ee/z5ZCQga" target="_blank" rel="noopener" data-i18n="cta.line">LINEで無料相談（写真だけでもOK）</a>
           </div>
+          <p class="hero-proof" data-i18n="hero.proof">商品写真とおおよその数量だけでもご相談いただけます。</p>
         </div>
         <aside class="hero-note">
           <strong data-i18n="hero.summaryTitle">10초 안에 확인하는 사쿠라 검품소</strong>
@@ -736,7 +743,13 @@
         </div>
         <aside class="contact-card inquiry-card">
           <h3 data-i18n="inquiry.title">ご相談方法</h3>
-          <p data-i18n="inquiry.desc">以下のボタンは、実際に利用できる電話、メール、LINEにつながります。</p>
+          <p data-i18n="inquiry.desc">正確な仕様が決まっていなくても大丈夫です。写真とわかる範囲の情報だけでご相談いただけます。</p>
+          <div class="line-inquiry-box">
+            <strong data-i18n="inquiry.lineTitle">LINEなら最短1分で相談できます</strong>
+            <p data-i18n="inquiry.lineDesc">以下の内容をコピーして、商品写真と一緒にお送りください。</p>
+            <div class="line-template" data-i18n="inquiry.template">商品：衣類／雑貨／化粧品など<br>数量：約○○点（未定でも可）<br>希望作業：検品／タグ付け／梱包／出荷<br>希望納期：○月○日ごろ</div>
+            <a class="button line-strong" style="width:100%; margin-top:14px" href="https://lin.ee/z5ZCQga" target="_blank" rel="noopener" data-i18n="cta.lineConsult">LINEで無料相談する</a>
+          </div>
           <div class="contact-actions">
             <a class="button primary" href="tel:+81334027121" data-i18n="inquiry.phone">電話で相談する</a>
             <a class="button" href="mailto:hana0334027121@gmail.com?subject=%E3%83%8F%E3%83%8A%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%97%E3%83%AC%E3%82%B9%20%E6%A4%9C%E5%93%81%E3%83%BB%E6%A2%B1%E5%8C%85%E3%83%BB%E5%87%BA%E8%8D%B7%E7%9B%B8%E8%AB%87" data-i18n="inquiry.email" data-contact="email">メールで相談する</a>
@@ -833,13 +846,14 @@
           "hero.title": "일본 현지 검품·택 작업·포장·출고를 한 번에",
           "hero.lead": "한국에서 일본으로 상품을 판매하고 계신가요? 한국어로 편하게 상담하고, 일본 현지에서 필요한 검품, 택 작업, 라벨 부착, 포장, 보관, 일본 국내 출고를 맡길 수 있습니다.",
           "hero.sub": "의류, 잡화, 화장품 등 다양한 상품의 일본 검품, 일본 택 작업, 일본 라벨 부착, 재포장, 보관 및 일본 배송대행을 상담합니다.",
+          "hero.proof": "상품 사진과 대략적인 수량만으로도 상담할 수 있습니다.",
           "hero.summaryTitle": "10초 안에 확인하는 하나익스프레스",
           "cta.quote": "무료 견적 상담",
           "cta.service": "서비스 자세히 보기",
-          "cta.line": "LINE으로 문의",
+          "cta.line": "LINE 무료상담 (사진만 있어도 가능)",
           "cta.possibility": "작업 가능 여부 문의하기",
           "cta.lineShort": "LINE 상담",
-          "cta.lineConsult": "LINE으로 상담하기",
+          "cta.lineConsult": "LINE으로 무료상담하기",
           "cta.quoteMobile": "전화 문의",
           "cta.lineMobile": "LINE 상담",
           "problems.eyebrow": "고객 고민",
@@ -868,6 +882,9 @@
           "quote.mailNote": "회사명이나 수량이 정해지지 않았어도 괜찮습니다. 가능한 범위에서 알려주세요.",
           "inquiry.title": "상담 방법",
           "inquiry.desc": "아래 버튼은 실제 연락 가능한 전화, 이메일, LINE으로 연결됩니다.",
+          "inquiry.lineTitle": "LINE으로 1분 만에 상담하세요",
+          "inquiry.lineDesc": "아래 내용을 복사해 상품 사진과 함께 보내 주세요.",
+          "inquiry.template": "상품: 의류/잡화/화장품 등\n수량: 약 ○○개 (미정 가능)\n희망 작업: 검품/택 작업/포장/출고\n희망 일정: ○월 ○일경",
           "inquiry.email": "이메일로 문의하기",
           "inquiry.phone": "전화로 문의하기",
           "inquiry.note": "상품 종류, 수량, 희망 작업, 일정을 알려주시면 더 빠르게 안내해 드립니다.",
@@ -992,16 +1009,17 @@
           "nav.cases": "作業事例",
           "nav.faq": "よくある質問",
           "nav.quote": "見積り相談",
-          "hero.title": "法人向け検品・梱包・出荷代行サービス",
-          "hero.lead": "検品・タグ付け・梱包作業を、必要な時だけ外部委託",
-          "hero.sub": "アパレル、雑貨、化粧品などの検品、タグ付け、ラベル貼り、セット組み、再梱包、保管、出荷まで一括で対応します。小ロット、スポット案件、繁忙期のみのご依頼もご相談ください。",
+          "hero.title": "検品・梱包・出荷をワンストップで",
+          "hero.lead": "日本国内の商品検品、タグ付け、ラベル貼り、再梱包、保管、出荷をまとめてお任せください。",
+          "hero.sub": "アパレル、雑貨、化粧品など幅広く対応。小ロットやスポット案件も、商品写真とおおよその数量だけで作業可否をご案内します。",
+          "hero.proof": "商品写真とおおよその数量だけでもご相談いただけます。",
           "hero.summaryTitle": "10秒でわかるハナエクスプレス",
           "cta.quote": "無料見積り相談",
           "cta.service": "サービスを見る",
-          "cta.line": "LINEで相談",
+          "cta.line": "LINEで無料相談（写真だけでもOK）",
           "cta.possibility": "作業可否を相談",
           "cta.lineShort": "LINE相談",
-          "cta.lineConsult": "LINEで相談する",
+          "cta.lineConsult": "LINEで無料相談する",
           "cta.quoteMobile": "電話相談",
           "cta.lineMobile": "LINE相談",
           "problems.eyebrow": "お客様の課題",
@@ -1029,7 +1047,10 @@
           "quote.receive": "LINE、メール、電話から直接ご相談いただけます。",
           "quote.mailNote": "会社名や数量が未定の場合も、わかる範囲でお知らせください。",
           "inquiry.title": "ご相談方法",
-          "inquiry.desc": "以下のボタンは、実際に利用できる電話、メール、LINEにつながります。",
+          "inquiry.desc": "正確な仕様が決まっていなくても大丈夫です。写真とわかる範囲の情報だけでご相談いただけます。",
+          "inquiry.lineTitle": "LINEなら最短1分で相談できます",
+          "inquiry.lineDesc": "以下の内容をコピーして、商品写真と一緒にお送りください。",
+          "inquiry.template": "商品：衣類／雑貨／化粧品など\n数量：約○○点（未定でも可）\n希望作業：検品／タグ付け／梱包／出荷\n希望納期：○月○日ごろ",
           "inquiry.email": "メールで相談する",
           "inquiry.phone": "電話で相談する",
           "inquiry.note": "商品カテゴリー、数量、希望作業、納期がわかる範囲でご連絡ください。",
@@ -1238,6 +1259,16 @@
         setLanguage(button.dataset.lang);
       });
     });
+
+    document.querySelectorAll('a[href^="tel:"]').forEach((link) => link.addEventListener("click", () => {
+      if (typeof gtag === "function") gtag("event", "contact_click", { contact_method: "phone", page_language: currentLang });
+    }));
+    document.querySelectorAll('a[href^="mailto:"]').forEach((link) => link.addEventListener("click", () => {
+      if (typeof gtag === "function") gtag("event", "contact_click", { contact_method: "email", page_language: currentLang });
+    }));
+    document.querySelectorAll('a[href*="lin.ee"]').forEach((link) => link.addEventListener("click", () => {
+      if (typeof gtag === "function") gtag("event", "contact_click", { contact_method: "line", page_language: currentLang, link_location: link.closest(".hero") ? "hero" : "body" });
+    }));
 
     setLanguage(currentLang);
   </script>
