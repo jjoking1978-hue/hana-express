@@ -427,6 +427,25 @@
       background: #fff;
       box-shadow: var(--shadow);
     }
+    .quick-quote { display: grid; gap: 14px; margin-top: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field { display: grid; gap: 7px; }
+    .field label { color: var(--ink); font-size: 13px; font-weight: 900; }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 12px 13px; border: 1px solid #c9d6e2;
+      border-radius: 8px; background: #fff; color: var(--ink); outline: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--blue); box-shadow: 0 0 0 3px rgba(11,92,173,.12);
+    }
+    .field textarea { min-height: 104px; resize: vertical; }
+    .quote-help { margin: 0; color: var(--sub); font-size: 13px; line-height: 1.65; }
+    .trust-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+    .trust-item {
+      padding: 13px; border: 1px solid var(--line); border-radius: 8px;
+      background: var(--soft); color: var(--blue-dark); font-size: 13px;
+      line-height: 1.5; font-weight: 900; text-align: center;
+    }
     .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
     .send-notice {
       margin: 18px 0 0;
@@ -569,6 +588,7 @@
       .hero .lead { margin-top: 20px; font-size: 17px; line-height: 1.65; }
       .hero .sublead { margin-top: 14px; line-height: 1.7; }
       .hero .cta-row { margin-top: 24px; }
+      .form-row, .trust-strip { grid-template-columns: 1fr; }
       .grid.two, .grid.three, .grid.four { grid-template-columns: 1fr; }
       section { padding: 58px 0; }
       .service-img, .photo-img { height: 190px; }
@@ -735,8 +755,30 @@
           </div>
         </div>
         <aside class="contact-card inquiry-card">
-          <h3 data-i18n="inquiry.title">ご相談方法</h3>
-          <p data-i18n="inquiry.desc">以下のボタンは、実際に利用できる電話、メール、LINEにつながります。</p>
+          <h3 data-i18n="inquiry.title">1분 견적 문의</h3>
+          <p data-i18n="inquiry.desc">정확하지 않아도 괜찮습니다. 아는 내용만 입력하면 이메일 문의가 완성됩니다.</p>
+          <div class="trust-strip" aria-label="상담 안내">
+            <div class="trust-item">사진만 있어도<br>상담 가능</div>
+            <div class="trust-item">소량·단기 작업도<br>가능 여부 확인</div>
+            <div class="trust-item">한국어로<br>상담 가능</div>
+          </div>
+          <form class="quick-quote" id="quickQuote">
+            <div class="form-row">
+              <div class="field"><label for="company">회사명 또는 성함</label><input id="company" name="company" autocomplete="organization" placeholder="예: 하나상사"></div>
+              <div class="field"><label for="contact">연락받을 이메일/전화</label><input id="contact" name="contact" autocomplete="email" placeholder="이메일 또는 전화번호" required></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label for="product">상품 종류</label><input id="product" name="product" placeholder="예: 의류, 화장품, 잡화" required></div>
+              <div class="field"><label for="quantity">예상 수량</label><input id="quantity" name="quantity" placeholder="예: 300개 / 아직 미정"></div>
+            </div>
+            <div class="field">
+              <label for="workType">필요한 작업</label>
+              <select id="workType" name="workType"><option>검품</option><option>택갈이·라벨 부착</option><option>포장·재포장</option><option>보관·일본 국내 출고</option><option>여러 작업 또는 상담 필요</option></select>
+            </div>
+            <div class="field"><label for="details">추가 내용</label><textarea id="details" name="details" placeholder="희망 일정, 상품 상태, 궁금한 점을 적어 주세요."></textarea></div>
+            <button class="button primary" type="submit">입력 내용으로 견적 문의하기</button>
+            <p class="quote-help">버튼을 누르면 입력한 내용이 담긴 이메일 작성 화면이 열립니다. 전송 전 내용을 확인할 수 있습니다.</p>
+          </form>
           <div class="contact-actions">
             <a class="button primary" href="tel:+81334027121" data-i18n="inquiry.phone">電話で相談する</a>
             <a class="button" href="mailto:hana0334027121@gmail.com?subject=%E3%83%8F%E3%83%8A%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%97%E3%83%AC%E3%82%B9%20%E6%A4%9C%E5%93%81%E3%83%BB%E6%A2%B1%E5%8C%85%E3%83%BB%E5%87%BA%E8%8D%B7%E7%9B%B8%E8%AB%87" data-i18n="inquiry.email" data-contact="email">メールで相談する</a>
@@ -830,9 +872,9 @@
           "nav.cases": "작업 사례",
           "nav.faq": "자주 묻는 질문",
           "nav.quote": "견적 문의",
-          "hero.title": "일본 현지 검품·택 작업·포장·출고를 한 번에",
-          "hero.lead": "한국에서 일본으로 상품을 판매하고 계신가요? 한국어로 편하게 상담하고, 일본 현지에서 필요한 검품, 택 작업, 라벨 부착, 포장, 보관, 일본 국내 출고를 맡길 수 있습니다.",
-          "hero.sub": "의류, 잡화, 화장품 등 다양한 상품의 일본 검품, 일본 택 작업, 일본 라벨 부착, 재포장, 보관 및 일본 배송대행을 상담합니다.",
+          "hero.title": "일본 현지 검품부터 출고까지, 한국어로 한 번에",
+          "hero.lead": "일본에 도착한 상품의 불량·라벨·포장 문제, 현지에서 바로 해결하세요.",
+          "hero.sub": "의류·화장품·잡화의 검품, 택갈이, 일본어 라벨 부착, 재포장, 보관과 일본 국내 출고까지 필요한 작업만 맡길 수 있습니다. 사진과 예상 수량만 보내도 작업 가능 여부를 확인해 드립니다.",
           "hero.summaryTitle": "10초 안에 확인하는 하나익스프레스",
           "cta.quote": "무료 견적 상담",
           "cta.service": "서비스 자세히 보기",
@@ -866,8 +908,8 @@
           "quote.desc": "상품 종류, 예상 수량, 필요한 작업과 희망 일정을 알려주시면 작업 가능 여부와 진행 방법을 안내해 드립니다.",
           "quote.receive": "전화, 이메일, LINE 중 편한 방법으로 바로 문의하실 수 있습니다.",
           "quote.mailNote": "회사명이나 수량이 정해지지 않았어도 괜찮습니다. 가능한 범위에서 알려주세요.",
-          "inquiry.title": "상담 방법",
-          "inquiry.desc": "아래 버튼은 실제 연락 가능한 전화, 이메일, LINE으로 연결됩니다.",
+          "inquiry.title": "1분 견적 문의",
+          "inquiry.desc": "정확하지 않아도 괜찮습니다. 아는 내용만 입력하면 이메일 문의가 완성됩니다.",
           "inquiry.email": "이메일로 문의하기",
           "inquiry.phone": "전화로 문의하기",
           "inquiry.note": "상품 종류, 수량, 희망 작업, 일정을 알려주시면 더 빠르게 안내해 드립니다.",
@@ -1237,6 +1279,24 @@
         }
         setLanguage(button.dataset.lang);
       });
+    });
+
+    document.querySelectorAll('a[href^="tel:"]').forEach((link) => link.addEventListener("click", () => {
+      if (typeof gtag === "function") gtag("event", "contact_click", { contact_method: "phone", page_language: currentLang });
+    }));
+    document.querySelectorAll('a[href^="mailto:"]').forEach((link) => link.addEventListener("click", () => {
+      if (typeof gtag === "function") gtag("event", "contact_click", { contact_method: "email", page_language: currentLang });
+    }));
+    document.querySelectorAll('a[href*="line.me"]').forEach((link) => link.addEventListener("click", () => {
+      if (typeof gtag === "function") gtag("event", "contact_click", { contact_method: "line", page_language: currentLang });
+    }));
+    document.getElementById("quickQuote")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const subject = `[홈페이지 견적 문의] ${form.get("company") || "고객"} - ${form.get("product")}`;
+      const body = ["하나익스프레스 견적 문의입니다.", "", `회사명/성함: ${form.get("company") || "미입력"}`, `연락처: ${form.get("contact")}`, `상품 종류: ${form.get("product")}`, `예상 수량: ${form.get("quantity") || "미정"}`, `필요 작업: ${form.get("workType")}`, `추가 내용: ${form.get("details") || "없음"}`].join("\n");
+      if (typeof gtag === "function") gtag("event", "quote_form_submit", { page_language: currentLang });
+      location.href = `mailto:hana0334027121@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
 
     setLanguage(currentLang);
